@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const formRef = document.querySelector('.form');
-formRef.addEventListener('submit', onSubmitForm);
+const form = document.querySelector('.form');
+form.addEventListener('submit', onSubmitForm);
 
 function onSubmitForm(e) {
   e.preventDefault();
@@ -22,7 +22,7 @@ function onSubmitForm(e) {
           Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, { useIcon: false });
         }, delay);
       });
-    delay += step;
+    delay += step; 
   }
 }
 
