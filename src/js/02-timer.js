@@ -3,7 +3,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import 'flatpickr/dist/themes/confetti.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-
+// 
 let selectedTime = null;
 const refs = {
   inputDate: document.querySelector('#datetime-picker'),
