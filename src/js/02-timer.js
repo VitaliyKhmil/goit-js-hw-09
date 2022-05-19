@@ -13,7 +13,6 @@ const refs = {
   seconds: document.querySelector('span[data-seconds]'),
 };
 
-// 
 function convertMs(ms) {
 
   const second = 1000;
