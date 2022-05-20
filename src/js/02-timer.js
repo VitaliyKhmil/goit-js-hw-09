@@ -1,4 +1,4 @@
-import flatpickr from "flatpickr";
+import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import 'flatpickr/dist/themes/confetti.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -14,20 +14,19 @@ const refs = {
 };
 
 function convertMs(ms) {
-
   const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;
   const day = hour * 24;
 
-    const days = pad(Math.floor(ms / day));
-    
-    const hours = pad(Math.floor((ms % day) / hour));
-    
-    const minutes = pad(Math.floor(((ms % day) % hour) / minute));
-    
-    const seconds = pad(Math.floor((((ms % day) % hour) % minute) / second));
-    
+  const days = pad(Math.floor(ms / day));
+
+  const hours = pad(Math.floor((ms % day) / hour));
+
+  const minutes = pad(Math.floor(((ms % day) % hour) / minute));
+
+  const seconds = pad(Math.floor((((ms % day) % hour) % minute) / second));
+
   return { days, hours, minutes, seconds };
 }
 
@@ -65,6 +64,7 @@ class Timer {
 
     this.isActive = true;
     this.timerID = setInterval(() => {
+      refs.startBtn.disabled = true;
       const currentTime = Date.now();
       const deltaTime = selectedTime - currentTime;
       const componentsTimer = convertMs(deltaTime);

@@ -16,7 +16,6 @@ class ColorSwitcher {
     this.intervalID = null;
     this.isActive = false;
     this.updateBackgroundColor = updateBackgroundColor;
-    refs.stopBtn.disabled = true;
   }
 
   startChangeBGcolor() {

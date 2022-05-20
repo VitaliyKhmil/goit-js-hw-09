@@ -10,6 +10,18 @@ function onSubmitForm(e) {
   const step = Number(e.currentTarget.step.value);
   const amount = Number(e.currentTarget.amount.value);
 
+  function createPromise(position, delay) {
+    const shouldResolve = Math.random() > 0.3;
+    const objectPromise = { position, delay };
+
+    return new Promise((resolve, reject) => {
+      if (shouldResolve) {
+        resolve(objectPromise);
+      }
+      reject(objectPromise);
+    });
+  }
+
   for (let position = 1; position <= amount; position += 1) {
     createPromise(position, delay)
       .then(({ position, delay }) => {
@@ -22,18 +34,6 @@ function onSubmitForm(e) {
           Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, { useIcon: false });
         }, delay);
       });
-    delay += step; 
+    delay += step;
   }
-}
-
-function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.3;
-  const objectPromise = { position, delay };
-
-  return new Promise((resolve, reject) => {
-    if (shouldResolve) {
-      resolve(objectPromise);
-    }
-    reject(objectPromise);
-  });
 }
